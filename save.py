@@ -26,8 +26,8 @@ class TestSEAllOFF():
     with open("./drag_and_drop_helper.js") as f:
       self.js = f.read()
     self.driver.find_element(By.ID, "entity-wizard-title").click()
-    self.driver.find_element(By.ID, "entity-wizard-title").send_keys("Medya")
-    self.driver.find_element(By.ID, "entity-wizard-name").send_keys("Medya")
+    self.driver.find_element(By.ID, "entity-wizard-title").send_keys("Hypcuk")
+    self.driver.find_element(By.ID, "entity-wizard-name").send_keys("Hypcuk")
     self.driver.find_element(By.CSS_SELECTOR, ".button_button--contained--secondary__3sWmt > .button_button__label__17Z4y").click()
     # dragged = self.driver.find_element(By.CSS_SELECTOR, "")
     # dropped = self.driver.find_element(By.CSS_SELECTOR, "")
