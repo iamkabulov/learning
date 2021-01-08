@@ -1,2 +1,6 @@
-const message = "Hello world";
-console.log(message);
+const a = 1;
+const b = 2;
+const c = a + b;
+if( c===3 ){
+console.log("Great job!");
+};
