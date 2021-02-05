@@ -1,45 +1,40 @@
+import pytest
 from selenium import webdriver
-import time 
-import unittest
+from selenium.webdriver.common.by import By
+import time
+import math
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
-class TestHypc(unittest.TestCase):
- def test_Hypc1(self):
-    self = webdriver.Chrome() 
-    link = "http://suninjuly.github.io/registration1.html"
-    self.get(link)
-    input1 = self.find_element_by_xpath("/html/body/div/form/div[1]/div[1]/input")
-    input1.send_keys("Ivan")
-    input2 = self.find_element_by_xpath("/html/body/div/form/div[1]/div[2]/input")
-    input2.send_keys("Petrov")
-    input3 = self.find_element_by_xpath("/html/body/div/form/div[1]/div[3]/input")
-    input3.send_keys("Smolensk")
-    input4 = self.find_element_by_xpath("/html/body/div/form/div[2]/div[1]/input")
-    input4.send_keys("Ivan")
-    input5 = self.find_element_by_xpath("/html/body/div/form/div[2]/div[2]/input")
-    input5.send_keys("Petrov")
-    button = self.find_element_by_xpath("/html/body/div/form/button")
+from selenium.webdriver.support.wait import WebDriverWait
+
+answer = math.log(int(time.time()))
+
+@pytest.fixture(scope="function")
+def browser():
+    print("\nstart browser for test..")
+    browser = webdriver.Chrome()
+    yield browser
+    print("\nquit browser..")
+    browser.quit()
+
+@pytest.mark.parametrize('url', ["https://stepik.org/lesson/236895/step/1",
+"https://stepik.org/lesson/236897/step/1",
+"https://stepik.org/lesson/236898/step/1",
+"https://stepik.org/lesson/236899/step/1",
+"https://stepik.org/lesson/236903/step/1",
+"https://stepik.org/lesson/236904/step/1",
+"https://stepik.org/lesson/236905/step/1"])
+
+def test_guest_should_see_login_link(browser, url):
+    link = f"{url}"
+    browser.get(link)
+    WebDriverWait(browser, 3).until(EC.visibility_of_element_located((By.TAG_NAME, "textarea")))
+    browser.find_element(By.TAG_NAME, "textarea").send_keys(f'{answer}')
+    button = WebDriverWait(browser, 5).until(EC.element_to_be_clickable((By.CLASS_NAME, "submit-submission")))
     button.click()
-    # успеваем скопировать код за 30 секунд
-    time.sleep(3)
-    # закрываем браузер после всех манипуляций
-    self.quit()
- def test_Hypc2(self):
-    self = webdriver.Chrome() 
-    link = "http://suninjuly.github.io/registration2.html"
-    self.get(link)
-    input1 = self.find_element_by_xpath("/html/body/div/form/div[1]/div[1]/input")
-    input1.send_keys("Ivan")
-    input2 = self.find_element_by_xpath("/html/body/div/form/div[1]/div[21]/input")
-    input2.send_keys("Petrov")
-    input5 = self.find_element_by_xpath("/html/body/div/form/div[2]/div[2]/input")
-    input5.send_keys("Petrov")
-    button = self.find_element_by_xpath("/html/body/div/form/button")
-    button.click()    
-    time.sleep(3)
-    # закрываем браузер после всех манипуляций
-    self.quit()
-if __name__=="__main__":
-    unittest.main()
-
-  
+    WebDriverWait(browser, 2).until(EC.visibility_of_element_located((By.CLASS_NAME, "smart-hints__hint")))
+    feedback = browser.find_element(By.CLASS_NAME, "smart-hints__hint").text
+    assert feedback == "Correct!"
+    
