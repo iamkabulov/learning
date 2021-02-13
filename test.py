@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.support.wait import WebDriverWait
 
-answer = math.log(int(time.time()))
+answer = math.log(int(time.time()-0.7))
 
 @pytest.fixture(scope="function")
 def browser():
@@ -19,14 +19,9 @@ def browser():
     print("\nquit browser..")
     browser.quit()
 
-@pytest.mark.parametrize('url', ["https://stepik.org/lesson/236895/step/1",
-"https://stepik.org/lesson/236897/step/1",
-"https://stepik.org/lesson/236898/step/1",
-"https://stepik.org/lesson/236899/step/1",
-"https://stepik.org/lesson/236903/step/1",
-"https://stepik.org/lesson/236904/step/1",
-"https://stepik.org/lesson/236905/step/1"])
-
+@pytest.mark.parametrize('url', [
+"https://stepik.org/lesson/236905/step/1"
+])
 def test_guest_should_see_login_link(browser, url):
     link = f"{url}"
     browser.get(link)
