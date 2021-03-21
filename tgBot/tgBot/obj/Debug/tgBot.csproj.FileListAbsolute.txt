@@ -1,0 +1,11 @@
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\obj\Debug\tgBot.csprojAssemblyReference.cache
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\obj\Debug\tgBot.csproj.CoreCompileInputs.cache
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\bin\Debug\tgBot.exe
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\bin\Debug\tgBot.pdb
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\bin\Debug\Telegram.Bot.dll
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\bin\Debug\Telegram.Bot.xml
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\obj\Debug\tgBot.csproj.CopyComplete
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\obj\Debug\tgBot.exe
+C:\Users\Nursultan.Kabulov\RiderProjects\tgBot\tgBot\obj\Debug\tgBot.pdb
